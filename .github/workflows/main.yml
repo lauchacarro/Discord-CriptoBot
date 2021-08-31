@@ -22,5 +22,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    - name: Npm Install CI
+      run: npm ci
+
     - name: Run Index.js
       run: node index.js

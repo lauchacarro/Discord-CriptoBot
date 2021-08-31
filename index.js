@@ -15,7 +15,6 @@ fetch(url)
 
 const processData = data => {
     const message = buildMessage(data);
-    console.log(message)
     sendMessageDiscordBot(message);
 }
 
@@ -27,7 +26,7 @@ const sendMessageDiscordBot = (message) => {
         "content": message,
         "embeds": null
     };
-    console.log(JSON.stringify(obj))
+
     fetch("https://discord.com/api/webhooks/882099198248497172/uLqfStKvOl4bVt8qi6YcSHjapq0IcpDTJUHmDoCOLelXu_7Q8Yn7A8W7r6urXqXQdjVS",
         {
             method: "POST",
