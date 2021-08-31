@@ -6,8 +6,6 @@ const currenciesAbreb = ["ADA", "PVU", "ZOON", "SLP", "AXS"]
 
 const url = `https://api.coingecko.com/api/v3/simple/price?ids=${currenciesNames.join(",")}&vs_currencies=usd&include_last_updated_at=true`
 
-console.log(url)
-
 fetch(url)
     .then(response => response.json())
     .then(data => processData(data))
