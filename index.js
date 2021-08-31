@@ -44,7 +44,7 @@ const sendMessageDiscordBot = (message) => {
 const buildMessage = data => {
 
     let message = "---------------------\n";
-    message = message + `${new Date().toLocaleString('es-AR')}\n\n`
+    message = message + `${new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}\n\n`
 
     for (const name of currenciesNames) {
         const amount = data[name];
