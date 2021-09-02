@@ -17,6 +17,6 @@ jobs:
       run: npm ci
 
     - name: Run Discord.js
-      run: node Discord.js
+      run: node discord.js
       env:
           WEBHOOK: ${{ github.event.client_payload.webhook }}
