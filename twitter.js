@@ -13,7 +13,7 @@ const buildMessage = (data) => {
     for (const name of currencies.names) {
         const amount = data[name];
 
-        message = message + `[${currencies.abreb[currencies.names.indexOf(name)]}](https://www.coingecko.com/es/monedas/${name}): ${amount.usd}\n`;
+        message = message + `$${currencies.abreb[currencies.names.indexOf(name)]} : ${amount.usd}\n`;
     }
     return message;
 }
