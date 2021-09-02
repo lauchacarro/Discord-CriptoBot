@@ -1,17 +1,8 @@
 name: Cripto Discord Bot
 
-on:
-  push:
-    branches: [ main ]
-    
-  schedule: 
-   # Cada 5 minutos. Igual ni funciona 🤷‍♂️
-   - cron: '*/5 * * * *' 
-   
+on:    
   repository_dispatch:
     types: [CriptoDiscordBot-Dispatch]
-
-  workflow_dispatch:
 
 jobs:
    
@@ -25,5 +16,5 @@ jobs:
     - name: Npm Install CI
       run: npm ci
 
-    - name: Run Index.js
-      run: node index.js
+    - name: Run Discord.js
+      run: WEBHOOK=${{ github.event.client_payload.webhook }} node Discord.js

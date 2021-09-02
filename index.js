@@ -6,47 +6,14 @@ const currenciesAbreb = ["ADA", "SOL", "MATIC", "PVU", "ZOON", "SLP", "AXS"]
 
 const url = `https://api.coingecko.com/api/v3/simple/price?ids=${currenciesNames.join(",")}&vs_currencies=usd&include_last_updated_at=true`
 
-fetch(url)
-    .then(response => response.json())
-    .then(data => processData(data))
 
 
-const processData = data => {
-    const message = buildMessage(data);
-    sendMessageDiscordBot(message);
-}
-
-
-const sendMessageDiscordBot = (message) => {
-
-    const obj = {
-        "content": message,
-        "embeds": null
-    };
-
-    fetch("https://discord.com/api/webhooks/882099198248497172/uLqfStKvOl4bVt8qi6YcSHjapq0IcpDTJUHmDoCOLelXu_7Q8Yn7A8W7r6urXqXQdjVS",
-        {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-        })
-
+const requestData = (callback) => {
+    fetch(url)
         .then(response => response.json())
+        .then(data => callback(data))
 }
 
+exports.requestData = requestData;
+exports.currencies = {names: currenciesNames, abreb: currenciesAbreb}
 
-const buildMessage = data => {
-
-    let message = "---------------------\n";
-    message = message + `${new Date().toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires' })}\n\n`
-
-    for (const name of currenciesNames) {
-        const amount = data[name];
-
-        message = message + `[${currenciesAbreb[currenciesNames.indexOf(name)]}](https://www.coingecko.com/es/monedas/${name}): ${amount.usd}\n`;
-    }
-    return message;
-}
