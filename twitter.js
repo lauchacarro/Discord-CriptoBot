@@ -23,19 +23,19 @@ const sendTweet = message => {
     const Twitter = require("twitter");
 
     const client = new Twitter({
-        consumer_key = process.env.CONSUMERKEY,
-        consumer_secret = process.env.CONSUMERSECRET,
-        access_token_key = process.env.ACCESSTOKENKEY,
-        access_token_secret = process.env.ACCESSTOKENSECRET
+        consumer_key: process.env.CONSUMERKEY,
+        consumer_secret: process.env.CONSUMERSECRET,
+        access_token_key: process.env.ACCESSTOKENKEY,
+        access_token_secret: process.env.ACCESSTOKENSECRET
     })
-    
+
     client.post("statuses/update", {
         status: message
     }).then(tweet => {
         console.log(tweet)
     })
-    .catch(error => console.log(error))
-    
+        .catch(error => console.log(error))
+
 }
 
 requestData(processData)
