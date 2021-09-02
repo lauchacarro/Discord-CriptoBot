@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 
-const currenciesNames = ["cardano", "matic-network", "plant-vs-undead-token", "cryptozoon", "smooth-love-potion", "axie-infinity"]
-const currenciesAbreb = ["ADA", "MATIC", "PVU", "ZOON", "SLP", "AXS"]
+const currenciesNames = ["cardano", "solana", "matic-network", "plant-vs-undead-token", "cryptozoon", "smooth-love-potion", "axie-infinity"]
+const currenciesAbreb = ["ADA", "SOL", "MATIC", "PVU", "ZOON", "SLP", "AXS"]
 
 
 const url = `https://api.coingecko.com/api/v3/simple/price?ids=${currenciesNames.join(",")}&vs_currencies=usd&include_last_updated_at=true`
@@ -15,7 +15,6 @@ const processData = data => {
     const message = buildMessage(data);
     sendMessageDiscordBot(message);
 }
-
 
 
 const sendMessageDiscordBot = (message) => {
@@ -51,7 +50,3 @@ const buildMessage = data => {
     }
     return message;
 }
-
-
-
-
