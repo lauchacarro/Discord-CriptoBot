@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lauchacarro/Discord-CriptoBot#readme",
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "twitter": "^1.7.1"
   }
 }

@@ -1,0 +1,25 @@
+name: Cripto Twitter Bot
+
+on:    
+  repository_dispatch:
+    types: [CriptoTwitterBot-Dispatch]
+
+jobs:
+   
+  job:
+    name: Run Action
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Npm Install CI
+      run: npm ci
+
+    - name: Run Twitter.js
+      run: node twitter.js
+      env:
+          CONSUMERKEY: ${{ github.event.client_payload.consumerKey }}
+          CONSUMERSECRET: ${{ github.event.client_payload.consumerSecret }}
+          ACCESSTOKENKEY: ${{ github.event.client_payload.accessTokenKey }}
+          ACCESSTOKENSECRET: ${{ github.event.client_payload.accessTokenSecret }}
