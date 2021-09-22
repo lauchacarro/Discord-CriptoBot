@@ -1,6 +1,7 @@
 name: Cripto Discord Bot
 
 on:    
+  workflow_run:
   repository_dispatch:
     types: [CriptoDiscordBot-Dispatch]
 
