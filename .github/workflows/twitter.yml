@@ -1,6 +1,7 @@
 name: Cripto Twitter Bot
 
-on:    
+on:
+  workflow_dispatch:
   repository_dispatch:
     types: [CriptoTwitterBot-Dispatch]
 
