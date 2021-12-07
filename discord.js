@@ -10,8 +10,8 @@ const processData = data => {
 const sendMessageDiscordBot = (message) => {
 
     const obj = {
-        content: message,
-        embeds: null
+        "content": message,
+        "embeds": null
     };
 
     fetch(process.env.WEBHOOK,
